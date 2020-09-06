@@ -21,32 +21,33 @@
 		<label for="folhaDeQuadros">Carregar nova folha de quadros</label>
 	</p>
 	
+	<hr>
 
 	<h2>Informações sobre a spritesheet</h2>
 	
 	<p><label for="colunasQtd">Quantidade de colunas</label>
 		<input type="number" id="colunasQtd" name="colunasQtd"></p>
 	
-
 	<p><label for="linhasQtd">Quantidade de linhas</label>
 		<input type="number" id="linhasQtd" name="linhasQtd"></p>
 	
-
 	<p><label for="quadroLargura">Largura do frame</label>
 		<input type="number" id="quadroLargura" name="quadroLargura"></p>
-	
 
-	<p></p>
-	<label for="quadroAltura">Altura do frame</label>
-	<input type="number" id="quadroAltura" name="quadroAltura">
+	<p><label for="quadroAltura">Altura do frame</label>
+	<input type="number" id="quadroAltura" name="quadroAltura"></p>
 
 	<p><label for="quadroQtdTotal">Quantidade total de quadros</label>
 		<input type="number" id="quadroQtdTotal" name="quadroQtdTotal"></p>
-	
+
+	<hr>
+
+	<button id="novaAnimacao" onclick="criarAnimacao()">Gerar nova animação</button>
+
 	<p><label for="taxaDeQuadros">Taxa de quadros:</label>
 		<input type="range" id="taxaDeQuadros" name="taxaDeQuadros" min="1" max="30" step="1"></p>
 
-	<button id="novaAnimacao" onclick="criarAnimacao()">Gerar nova animação</button>
+	
 
 </section>
 
