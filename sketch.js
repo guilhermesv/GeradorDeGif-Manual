@@ -5,7 +5,6 @@
 let spritesheetInicial;
 let spritesheetUsuario;
 let animacaoGerada;
-let frameContador = 0;
 
 // Interface
 let inputSpritesheet;
