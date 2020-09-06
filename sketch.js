@@ -5,6 +5,7 @@
 let spritesheetInicial;
 let spritesheetUsuario;
 let animacaoGerada;
+let frameContador = 0;
 
 // Interface
 let inputSpritesheet;
@@ -22,7 +23,7 @@ function preload() {
 }
 
 function setup() {
-  let canvas = createCanvas(700, 700);
+  let canvas = createCanvas(1400, 1400);
   canvas.parent("p5js-container");
   frameRate(6);
 
@@ -37,7 +38,7 @@ function setup() {
   inputNLinhas = document.getElementById('linhasQtd');
   inputFrameLargura = document.getElementById('quadroLargura');
   inputFrameAltura = document.getElementById('quadroAltura');
-  inputFrameTotal = document.getElementById('quadroQtdTotal');
+  // inputFrameTotal = document.getElementById('quadroQtdTotal');
   
   
 
@@ -50,7 +51,6 @@ function setup() {
 function draw() {
   
   let taxaQuadros = parseInt(sliderFrameRate.value);
-  console.log(taxaQuadros);
   frameRate(taxaQuadros);
   
   // scale(0.5);
@@ -76,7 +76,8 @@ function criarAnimacao() {
     let nLinhas = inputNLinhas.value;
     let frameLargura = inputFrameLargura.value;
     let frameAltura = inputFrameAltura.value;
-    let frameTotal = inputFrameTotal.value;
+    // let frameTotal = inputFrameTotal.value;
+    let frameTotal = nColunas * nLinhas;
     resizeCanvas(frameLargura, frameAltura);
     
     animacaoGerada = new Animacao(spritesheetUsuario, nColunas, nLinhas, frameLargura, frameAltura, frameTotal);
