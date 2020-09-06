@@ -14,7 +14,7 @@ let inputFrameLargura;
 let inputFrameAltura;
 let inputFrameTotal;
 let sliderFrameRate;
-let buttonCriarAnimacao;
+
 
 
 function preload() {
@@ -31,36 +31,27 @@ function setup() {
 
   // interface
   inputSpritesheet = createFileInput(handleFile);
-  inputSpritesheet.parent('interface');
+  inputSpritesheet.parent('arquivo');
 
-  inputNColunas = createInput(3, 'number');
-  inputNColunas.parent('interface');
+  inputNColunas = document.getElementById('colunasQtd');
+  inputNLinhas = document.getElementById('linhasQtd');
+  inputFrameLargura = document.getElementById('quadroLargura');
+  inputFrameAltura = document.getElementById('quadroAltura');
+  inputFrameTotal = document.getElementById('quadroQtdTotal');
+  
+  
 
-  inputNLinhas = createInput(6, 'number');
-  inputNLinhas.parent('interface');
-
-  inputFrameLargura = createInput(1400, 'number');
-  inputFrameLargura.parent('interface');
-
-  inputFrameAltura = createInput(1400, 'number');
-  inputFrameAltura.parent('interface');
-
-  inputFrameTotal = createInput(12, 'number');
-  inputFrameTotal.parent('interface');
-
-  buttonCriarAnimacao = createButton('Gerar nova animação');
-  buttonCriarAnimacao.mousePressed(criarAnimacao);
-  buttonCriarAnimacao.parent('interface');
-
-  sliderFrameRate = createSlider(1, 30, 12, 1);
-  sliderFrameRate.parent('interface');
+  sliderFrameRate = document.getElementById('taxaDeQuadros');
 
   
   
 }
 
 function draw() {
-  frameRate(sliderFrameRate.value());
+  
+  let taxaQuadros = parseInt(sliderFrameRate.value);
+  console.log(taxaQuadros);
+  frameRate(taxaQuadros);
   
   // scale(0.5);
   animacaoGerada.exibir();
@@ -81,11 +72,11 @@ function criarAnimacao() {
   if (spritesheetUsuario != null) {
     
 
-    let nColunas = inputNColunas.value();
-    let nLinhas = inputNLinhas.value();
-    let frameLargura = inputFrameLargura.value();
-    let frameAltura = inputFrameAltura.value();
-    let frameTotal = inputFrameTotal.value();
+    let nColunas = inputNColunas.value;
+    let nLinhas = inputNLinhas.value;
+    let frameLargura = inputFrameLargura.value;
+    let frameAltura = inputFrameAltura.value;
+    let frameTotal = inputFrameTotal.value;
     resizeCanvas(frameLargura, frameAltura);
     
     animacaoGerada = new Animacao(spritesheetUsuario, nColunas, nLinhas, frameLargura, frameAltura, frameTotal);
