@@ -38,9 +38,6 @@ function setup() {
   inputFrameLargura = document.getElementById('quadroLargura');
   inputFrameAltura = document.getElementById('quadroAltura');
   // inputFrameTotal = document.getElementById('quadroQtdTotal');
-  
-  
-
   sliderFrameRate = document.getElementById('taxaDeQuadros');
 
   
@@ -84,36 +81,3 @@ function criarAnimacao() {
     console.log("ImagemCagada");
   }
 }
-
-// let spritesheet;
-// let colunas = 3;
-// let linhas = 4;
-// let frameLargura = 1400;
-// let frameAltura = 1400;
-// let animacao = [];
-
-// function preload() {
-//   spritesheet = loadImage("spritesheets/2020-09-05-0001-600dpi.jpg");
-// }
-
-// function setup() {
-//   createCanvas(1400, 1400);
-//   frameRate(6);
-
-//   let frameTemp;
-
-//   for (let i = 0; i < linhas; i++) {
-//     for (let j = 0; j < colunas; j++) {
-//       let x = j * frameLargura;
-//       let y = i * frameAltura;
-//       frameTemp = spritesheet.get(x, y, frameLargura, frameAltura);
-//       animacao.push(frameTemp);
-//     }
-//   }
-// }
-
-// function draw() {
-//   background(0);
-//   let frame = frameCount % animacao.length;
-//   image(animacao[frame], 0, 0);
-// }
