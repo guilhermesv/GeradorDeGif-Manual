@@ -8,47 +8,76 @@
 	<title>Gerador de Gifs manuais</title>
 
 	<script src="https://cdn.jsdelivr.net/npm/p5@1.1.4/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5.capture@1.4.1/dist/p5.capture.umd.min.js"></script>
 	<link rel="stylesheet" href="css/main.css">
 
 </head>
 <body>
 <section id="interface">
-	<h1>Gerador de Gifs Manual</h1>
+	<header>
+		<h1>Gerador de Gifs Manual</h1>
+	</header>
 
 	<hr>
 
-	<p id="arquivo">
-		<label for="folhaDeQuadros">Carregar nova folha de quadros</label>
-	</p>
+	<div id="secao-arquivo">
+		<div id="arquivo">
+			<label for="folhaDeQuadros">Carregar folha de quadros:</label>
+		</div>
+	</div>
 	
 	<hr>
 
-	<h2>Informações sobre a folha de quadros</h2>
+	<div id="secao-folhaDeQuadros">
+		<h2>Informações folha de quadros</h2>
 	
-	<p><label for="colunasQtd">Quantidade de colunas</label>
-		<input type="number" id="colunasQtd" name="colunasQtd"></p>
-	
-	<p><label for="linhasQtd">Quantidade de linhas</label>
-		<input type="number" id="linhasQtd" name="linhasQtd"></p>
-	
-	<p><label for="quadroLargura">Largura do frame</label>
-		<input type="number" id="quadroLargura" name="quadroLargura"></p>
+		<p><label for="colunasQtd">Quantidade de colunas</label>
+			<input type="number" min="1" value="3"id="colunasQtd" name="colunasQtd"></p>
+		
+		<p><label for="linhasQtd">Quantidade de linhas</label>
+			<input type="number" min="1" value="4" id="linhasQtd" name="linhasQtd"></p>
+		
+		<p><label for="quadroLargura">Largura do frame</label>
+			<input type="number" min="1" value="1400" id="quadroLargura" name="quadroLargura"></p>
 
-	<p><label for="quadroAltura">Altura do frame</label>
-	<input type="number" id="quadroAltura" name="quadroAltura"></p>
+		<p><label for="quadroAltura">Altura do frame</label>
+		<input type="number" min="1" value="1400" id="quadroAltura" name="quadroAltura"></p>
+
+		<p><label for="duracao">Duração</label>
+			<input type="number" min="1" value="24" id="duracao" name="duracao"></p>
+
+		<button id="novaAnimacao" onclick="criarAnimacao()">Gerar nova animação</button>
+	</div>
 
 	<hr>
 
-	<button id="novaAnimacao" onclick="criarAnimacao()">Gerar nova animação</button>
-
+	<div id="secao-controle">
+		<button id="playPause" onclick="pausarTocar()">PAUSE</button>
+		<p>
+			<label for="taxaDeQuadros">Taxa de quadros: <span id="rotuloTaxaDeQuadros">14</span></label>
+			<input type="range" id="taxaDeQuadros" name="taxaDeQuadros" min="1" max="30" step="1" value="12">
+		</p>
+	</div>
+	
 	<hr>
 
-	<button id="playPause" onclick="">PAUSE</button>
+	<div id="secao-exportar">
+		<h2>Exportar</h2>
+		<div id="gravacaoRetorno">
+			<span>Gravando</span>
+		</div>
+		<p>
+			<label for="formato">Formato
+			</label>
+			<select name="formato" id="formato">
+				<option value="mp4">mp4</option>
+				<option value="gif">gif</option>
+				<option value="png">png</option>
+			</select> 
+		</p>
+	</div>
 
-	<p><label for="taxaDeQuadros">Taxa de quadros:</label>
-		<input type="range" id="taxaDeQuadros" name="taxaDeQuadros" min="1" max="30" step="1"></p>
-
-	
+	<button id="playPause" onclick="gravar()">Exportar</button>
 
 </section>
 

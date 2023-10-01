@@ -31,7 +31,8 @@ class Animacao {
   }
 
   exibir() {
-    let frame = frameCount % this.animacao.length;
+    let frame = contadorFrames % this.animacao.length;
+
     image(this.animacao[frame], 0, 0);
   }
   
