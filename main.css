@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Basic';
-  src: url('/fonts/Basic.woff2') format('woff2'),
-       url('/fonts/Basic.woff') format('woff');
+  src: url('fonts/Basic.woff2') format('woff2'),
+       url('fonts/Basic.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
